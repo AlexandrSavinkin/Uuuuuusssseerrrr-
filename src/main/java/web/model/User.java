@@ -1,4 +1,4 @@
-package web.models;
+package web.model;
 
 import javax.persistence.*;
 
@@ -18,13 +18,6 @@ public class User {
 
     public User() {
     }
-
-    public User(String name, String surname, int age) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-    }
-
     public int getId() {
         return id;
     }
@@ -55,6 +48,16 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
 

@@ -3,11 +3,12 @@ package web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import web.models.User;
+import web.model.User;
 import web.service.UserService;
 
 
 @Controller
+@RequestMapping("/")
 public class UserController {
 
     private final UserService userService;
@@ -17,10 +18,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/users")
     public String getIndex(ModelMap model) {
         model.addAttribute("users", userService.getAllUser());
-        return "index";
+        return "all_users";
     }
 
     @GetMapping(value = "/add")
@@ -30,7 +31,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
-    public String addSumbit(@ModelAttribute User user) {
+    public String addSubmit(@ModelAttribute User user) {
         userService.addUser(user);
         return "redirect:/";
     }
@@ -52,5 +53,6 @@ public class UserController {
         userService.updateUser(user);
         return "redirect:/";
     }
+
 
 }
