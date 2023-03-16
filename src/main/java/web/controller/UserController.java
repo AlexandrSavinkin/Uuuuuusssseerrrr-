@@ -33,13 +33,13 @@ public class UserController {
     @PostMapping(value = "/add")
     public String addSubmit(@ModelAttribute User user) {
         userService.addUser(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
 
     @DeleteMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         userService.deleteUser(id);
-        return "redirect:/";
+        return "redirect:/users";
     }
 
     @GetMapping(value = "/edit/{id}")
@@ -51,7 +51,7 @@ public class UserController {
     @PatchMapping(value = "/edit")
     public String editSubmit(@ModelAttribute User user) {
         userService.updateUser(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
 
 
